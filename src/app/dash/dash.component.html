@@ -16,14 +16,17 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-          <button mat-mini-fab color="primary" aria-label="Add item to list" (click)="addItem(card.id, 'hola')">
+          <mat-form-field>
+            <input #item matInput (keyup)="onKey($event)">
+          </mat-form-field>
+          <button mat-mini-fab color="primary" aria-label="Add item to list" (click)="addItem(card.id)">
             <mat-icon>add</mat-icon>
           </button>
           <mat-list>
             <mat-list-item *ngFor="let item of card.items">
               <div>
                 {{item}}
-                <button mat-icon-button (click)="addItem(card.id, 'hola')">
+                <button mat-icon-button (click)="deleteItem(card.id, item)">
                   <mat-icon>delete</mat-icon>
                 </button>
               </div>

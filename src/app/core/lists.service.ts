@@ -18,4 +18,15 @@ export class ListsService {
   getLists() : List[] {
     return this.lists;
   }
+
+  deleteItem(id: number, item: string){
+    let list = this.lists.find(x => x.id === id);
+    const i = list.items.indexOf(item);
+    list.items.splice(i,1);
+  }
+
+  addItem(id: number, item: string){
+    let list = this.lists.find(x => x.id === id);
+    list.items.push(item);
+  }
 }

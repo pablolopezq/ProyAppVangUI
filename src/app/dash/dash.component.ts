@@ -30,6 +30,7 @@ export class DashComponent implements OnInit{
 
   cards: List[];
   service: ListsService;
+  input = ''
 
   constructor(private breakpointObserver: BreakpointObserver) {
     this.service = new ListsService();
@@ -40,7 +41,16 @@ export class DashComponent implements OnInit{
     console.log(this.cards)
   }
 
-  addItem(id: number, item: string){
-    console.log(id, item)
+  addItem(id: number){
+    this.service.addItem(id, this.input);
+  }
+
+  deleteItem(id: number, item: string){
+    this.service.deleteItem(id, item);
+    this.ngOnInit();
+  }
+
+  onKey(event: KeyboardEvent) {
+    this.input = (event.target as HTMLInputElement).value;
   }
 }
