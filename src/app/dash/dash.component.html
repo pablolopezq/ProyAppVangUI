@@ -1,0 +1,36 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Listas</h1>
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards" [colspan]="1" [rowspan]="1">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            {{card.name}}
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item>Expand</button>
+              <button mat-menu-item>Remove</button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <button mat-mini-fab color="primary" aria-label="Add item to list" (click)="addItem(card.id, 'hola')">
+            <mat-icon>add</mat-icon>
+          </button>
+          <mat-list>
+            <mat-list-item *ngFor="let item of card.items">
+              <div>
+                {{item}}
+                <button mat-icon-button (click)="addItem(card.id, 'hola')">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
