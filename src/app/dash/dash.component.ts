@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
-import { ListsService } from '../core/lists.service';
+import { ListsService } from '../core/lists/lists.service';
 import { List } from '../models/list';
 
 @Component({
