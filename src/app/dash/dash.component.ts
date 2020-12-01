@@ -3,6 +3,7 @@ import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { ListsService } from '../core/lists/lists.service';
 import { List } from '../models/list';
+import { RecipeDialogComponent } from '../recipe-dialog/recipe-dialog.component';
 
 @Component({
   selector: 'app-dash',
@@ -32,7 +33,7 @@ export class DashComponent implements OnInit{
   service: ListsService;
   input = ''
 
-  constructor(private breakpointObserver: BreakpointObserver) {
+  constructor(public dialog: MatDialog) {
     this.service = new ListsService();
   }
 
@@ -52,5 +53,17 @@ export class DashComponent implements OnInit{
 
   onKey(event: KeyboardEvent) {
     this.input = (event.target as HTMLInputElement).value;
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(RecipeDialogComponent, {
+      width: '250px',
+      data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
   }
 }
