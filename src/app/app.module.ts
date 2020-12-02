@@ -20,13 +20,15 @@ import { RecipeDialogComponent } from './recipe-dialog/recipe-dialog.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
+import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     DashComponent,
-    RecipeDialogComponent
+    RecipeDialogComponent,
+    RecipeDetailComponent
   ],
   imports: [
     BrowserModule,

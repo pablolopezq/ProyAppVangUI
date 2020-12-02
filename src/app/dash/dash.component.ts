@@ -6,6 +6,8 @@ import { List } from '../models/list';
 import { RecipeDialogComponent } from '../recipe-dialog/recipe-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { RecipeadapterService } from '../core/recipeadapter/recipeadapter.service';
+import { RecipeDetailComponent } from '../recipe-detail/recipe-detail.component';
+import { Recipe } from '../models/recipe';
 
 @Component({
   selector: 'app-dash',
