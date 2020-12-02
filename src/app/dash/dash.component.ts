@@ -4,6 +4,8 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { ListsService } from '../core/lists/lists.service';
 import { List } from '../models/list';
 import { RecipeDialogComponent } from '../recipe-dialog/recipe-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
+import { RecipeadapterService } from '../core/recipeadapter/recipeadapter.service';
 
 @Component({
   selector: 'app-dash',
@@ -31,10 +33,13 @@ export class DashComponent implements OnInit{
 
   cards: List[];
   service: ListsService;
+  recipeService: RecipeadapterService;
   input = ''
+  ingredients = []
 
   constructor(public dialog: MatDialog) {
     this.service = new ListsService();
+    this.recipeService = new RecipeadapterService();
   }
 
   ngOnInit(){
@@ -55,15 +60,16 @@ export class DashComponent implements OnInit{
     this.input = (event.target as HTMLInputElement).value;
   }
 
-  openDialog(): void {
+  openDialog(ingredients: string[]): void {
+    let recipes = this.recipeService.getRecipes(ingredients);
     const dialogRef = this.dialog.open(RecipeDialogComponent, {
       width: '250px',
-      data: {name: this.name, animal: this.animal}
+      data: {recipes: recipes}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.animal = result;
+      console.log(result)
     });
   }
 }
