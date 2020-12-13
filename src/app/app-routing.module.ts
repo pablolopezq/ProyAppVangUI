@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DashComponent } from './dash/dash.component';
+import { ListsComponent } from './dash/dash.component';
 import { LoginComponent } from './login/login.component';
 import { NavComponent } from './nav/nav.component';
 
@@ -11,8 +11,8 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'home',
-    component: DashComponent
+    path: 'lists',
+    component: ListsComponent
   },
   {
     path: 'nav',

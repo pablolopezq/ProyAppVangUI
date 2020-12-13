@@ -25,16 +25,16 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.service.login(this.addressForm.value.username, this.addressForm.value.password)){
-      this.router.navigate(['/home'])
+      this.router.navigate(['/lists'])
     }
     else {
-      alert("Username or Password incorrect");
+      alert("Usuario y/o contraseña inválidos");
     }
   }
 
   signUp() {
     if (this.service.signup(this.addressForm.value.username, this.addressForm.value.password)){
-      this.router.navigate(['/home'])
+      this.router.navigate(['/lists'])
     }
     else {
       alert("Username already exists");

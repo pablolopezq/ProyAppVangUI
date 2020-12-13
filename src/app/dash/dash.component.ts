@@ -14,7 +14,7 @@ import { Recipe } from '../models/recipe';
   templateUrl: './dash.component.html',
   styleUrls: ['./dash.component.css']
 })
-export class DashComponent implements OnInit{
+export class ListsComponent implements OnInit{
   /** Based on the screen size, switch from standard to one column per row */
   // cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
   //   map(({ matches }) => {
