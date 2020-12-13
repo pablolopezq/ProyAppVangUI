@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -21,6 +21,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
+import { LoginComponent } from './login/login.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
     NavComponent,
     DashComponent,
     RecipeDialogComponent,
-    RecipeDetailComponent
+    RecipeDetailComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,10 @@ import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
     MatFormFieldModule,
     FormsModule,
     MatDialogModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

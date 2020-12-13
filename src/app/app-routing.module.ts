@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashComponent } from './dash/dash.component';
+import { LoginComponent } from './login/login.component';
 import { NavComponent } from './nav/nav.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'nav',
     component: NavComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   }
 ];
 

@@ -39,9 +39,9 @@ export class DashComponent implements OnInit{
   input = ''
   ingredients = []
 
-  constructor(public dialog: MatDialog) {
-    this.service = new ListsService();
-    this.recipeService = new RecipeadapterService();
+  constructor(public dialog: MatDialog, _listService: ListsService, _recipeService: RecipeadapterService) {
+    this.service = _listService;
+    this.recipeService = _recipeService;
   }
 
   ngOnInit(){
