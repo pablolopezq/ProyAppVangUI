@@ -1,5 +1,6 @@
 <div class="grid-container">
   <h1 class="mat-h1">Listas</h1>
+  <button mat-raised-button color="primary" type="button" (click)="openReminderDialog()">Agregar recordatorio</button>
   <mat-grid-list cols="2" rowHeight="350px">
     <mat-grid-tile *ngFor="let card of cards" [colspan]="1" [rowspan]="1">
       <mat-card class="dashboard-card">

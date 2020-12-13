@@ -24,6 +24,11 @@ import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { LoginComponent } from './login/login.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
+import { ReminderDialogComponent } from './reminder-dialog/reminder-dialog.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { NgxMatDatetimePickerModule, NgxMatTimepickerModule, NgxMatNativeDateModule } from '@angular-material-components/datetime-picker';
 
 @NgModule({
   declarations: [
@@ -32,7 +37,8 @@ import { MatRadioModule } from '@angular/material/radio';
     ListsComponent,
     RecipeDialogComponent,
     RecipeDetailComponent,
-    LoginComponent
+    LoginComponent,
+    ReminderDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -53,9 +59,17 @@ import { MatRadioModule } from '@angular/material/radio';
     MatInputModule,
     MatSelectModule,
     MatRadioModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule ,
+    NgxMaterialTimepickerModule,
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    NgxMatNativeDateModule,
   ],
-  providers: [],
+  providers: [
+    MatDatepickerModule,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,3 @@
-import { Route } from '@angular/compiler/src/core';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -10,7 +9,7 @@ import { LoginService } from '../core/login/login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  addressForm = this.fb.group({
+  loginForm = this.fb.group({
     username: [null, Validators.required],
     password: [null, Validators.required]
   });
@@ -24,7 +23,7 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    if (this.service.login(this.addressForm.value.username, this.addressForm.value.password)){
+    if (this.service.login(this.loginForm.value.username, this.loginForm.value.password)){
       this.router.navigate(['/lists'])
     }
     else {
@@ -33,7 +32,7 @@ export class LoginComponent {
   }
 
   signUp() {
-    if (this.service.signup(this.addressForm.value.username, this.addressForm.value.password)){
+    if (this.service.signup(this.loginForm.value.username, this.loginForm.value.password)){
       this.router.navigate(['/lists'])
     }
     else {

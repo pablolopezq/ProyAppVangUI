@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { RecipeadapterService } from '../core/recipeadapter/recipeadapter.service';
 import { RecipeDetailComponent } from '../recipe-detail/recipe-detail.component';
 import { Recipe } from '../models/recipe';
+import { ReminderDialogComponent } from '../reminder-dialog/reminder-dialog.component';
 
 @Component({
   selector: 'app-dash',
@@ -65,6 +66,19 @@ export class ListsComponent implements OnInit{
   openDialog(ingredients: string[]): void {
     let recipes = this.recipeService.getRecipes(ingredients);
     const dialogRef = this.dialog.open(RecipeDialogComponent, {
+      width: '250px',
+      data: {recipes: recipes}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result)
+    });
+  }
+
+  openReminderDialog(): void {
+    let recipes = this.recipeService.getRecipes([]);
+    const dialogRef = this.dialog.open(ReminderDialogComponent, {
       width: '250px',
       data: {recipes: recipes}
     });
